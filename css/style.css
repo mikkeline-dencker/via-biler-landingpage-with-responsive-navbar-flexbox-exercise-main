@@ -1,0 +1,203 @@
+/*CSS variabler - KUN FARVER, TYPOGRAFI OG FONT WEIGHT*/
+
+/*Farver*/
+:root{
+    --primary-color: #000;
+    --secondary-color: #333;
+    --white: #fff;
+    --light-grey: #eee;
+
+/*Typofrafi*/
+    --font-family:'Inter', Arial, sans-serif;
+    --font-size-small: 13px;
+    --font-size-base: 16px;
+    --font-size-medium: 18px;
+    --font-size-large: 20px;
+    --font-size-xl: 24px;
+    --font-size-xxl: 28px;
+    --font-size-hero: 4.5rem;
+    --font-size-hero-tablet: 3rem;
+    --font-size-hero-mobile: 2.5rem;
+
+/*Font weights*/
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+}
+
+/*Reset style*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: var(--font-family);
+    line-height: 1.6;
+}
+
+/*Header/navigation*/
+    header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 15px 7%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 1000;
+    }
+
+/*Brand name*/
+    header .brand{
+        font-size: var(--font-size-xxl);
+        font-weight: var(--font-weight-bold);
+        color: var(--primary-color);
+        letter-spacing: 2px;
+        text-decoration: none;
+    }
+
+/*Navigation*/
+    header .navbar ul{
+        list-style: none;
+        display: flex;
+        align-items: center;
+    }
+header .navbar ul li{
+    position: relative;
+    margin: 0 20px;
+}
+header .navbar ul li a{
+    text-decoration: none;
+    font-size: var(--font-size-base);
+    padding: 15px 10px;
+    color: var(--primary-color);
+    display: block;
+    font-weight: var(--font-weight-medium);
+    transition: color 0.3s ease;
+}
+header .navbar ul li a:hover{
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/*Workshop button*/
+    .workshop-btn{
+        background-color: var(--primary-color);
+        color: var(--white);
+        padding: 12px 24px;
+        border: none;
+        border-radius: 6px;
+        font-size: var(--font-size-base);
+        font-weight: var(--font-weight-semibold);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+     .workshop-btn:hover{
+        background-color: var(--secondary-color);
+        transform: translateY(-2px);
+     }
+    #menu-bar{
+        display: none;
+    }
+
+/*Mobil menu label*/
+    header label{
+        font-size: var(--font-size-large);
+        color: var(--secondary-color);
+        cursor: pointer;
+        display: none;
+        font-weight: var(--font-weight-semibold);
+    }
+
+/*Hero section*/
+    .hero{
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    margin-top: 80px;
+    background-image:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url('https://images.unsplash.com/photo-1563720223185-11003d516935?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content h1{
+    color: var(--white);
+    font-size: var(--font-size-hero);
+    font-weight: var(--font-weight-bold);
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+    letter-spacing: 2px;
+}
+
+/*Mobil/Tablet styles - kun ét CSS breakpoint*/
+    @media (max-width: 768px){
+        header{
+            padding: 20px;
+        }
+        header .brand{
+            font-size: var(--font-size-large);
+        }
+    /*Vis mobil menu label*/
+        header label{
+            display: block;
+        }
+    /*Hide and position navbar for mobile*/
+        header .navbar{
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background:var(--white);
+            border-top: 1px solid(rgba(0,0,0,0.1));
+            display: none;
+        }
+    
+    header .navbar ul{
+        flex-direction: column;
+        align-items: stretch;
+
+    }
+    header .navbar ul li{
+        width: 100%;
+        margin: 0;
+    }
+
+    header .navbar ul li a{
+        font-size: var(--font-size-medium);
+        padding: 20px;
+        border-bottom: 1px solid var(--light-grey);
+        text-align: left;
+    }
+    
+    .workshop-btn{
+        padding: 10px 20px;
+        font-size: var(--font-size-small);
+    }
+
+/*Show navbar when chechbox is checked*/
+    #menu-bar:checked ~ .navbar{
+        display: block;
+    }
+
+    .hero{
+        margin-top: 70px;
+        height: 80vh;
+    }
+
+    .hero-content h1{
+        font-size: var(--font-size-hero-mobile);
+        padding: 0 20px;
+    }
+}
